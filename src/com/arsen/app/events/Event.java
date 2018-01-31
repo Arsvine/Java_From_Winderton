@@ -1,16 +1,21 @@
 package com.arsen.app.events;
 
-import org.jcp.xml.dsig.internal.MacOutputStream;
-
-import java.lang.reflect.Type;
-
 public class Event {
 
-    public enum Type(){
-        MOUSE
+    public enum Type{
+        MOUSE_MOVED,
+        MOUSE_PRESSED,
+        MOUSE_RELEASED,
     }
 
-    protected Event(Type type){
+    private Type type;
+    public boolean handled;
 
+    protected Event(Type type){
+        this.type = type;
+    }
+
+    public Type getType() {
+        return type;
     }
 }
